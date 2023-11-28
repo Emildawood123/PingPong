@@ -31,6 +31,10 @@ paddle2_y = window_height // 2 - paddle_height // 2
 score1 = 0
 score2 = 0
 
+# Get player names
+player1_name = input("Enter Player 1 name: ")
+player2_name = input("Enter Player 2 name: ")
+
 running = True
 
 # Game loop
@@ -91,7 +95,7 @@ while running:
 
     # Draw scores
     font = pygame.font.Font(None, 36)
-    score_text = font.render(f"Player 1: {score1}  Player 2: {score2}", True, (255, 255, 255))
+    score_text = font.render(f"{player1_name}: {score1}  {player2_name}: {score2}", True, (255, 255, 255))
     window.blit(score_text, (window_width // 2 - score_text.get_width() // 2, 10))
 
     # Update the window
@@ -101,7 +105,7 @@ while running:
     clock.tick(60)
 
 # Determine the winner
-winner = "Player 1" if score1 == 5 else "Player 2"
+winner = player1_name if score1 == 5 else player2_name
 print(f"The winner is {winner}!")
 
 # Quit the game
